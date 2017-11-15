@@ -1,3 +1,6 @@
+require 'sidekiq/web'
+# mount Sidekiq::Web => '/sidekiq'
+
 Rails.application.routes.draw do
 
   devise_for :users
@@ -12,4 +15,5 @@ Rails.application.routes.draw do
   get 'google-isbn', to: 'google_books#show'
 
   resources :books
+  mount Sidekiq::Web => '/sidekiq'
 end

@@ -1,0 +1,3 @@
+<h3>Hi <%= @borrower.email %>!</h3>
+<%= @reservation.expires_at %> upływa termin zwrotu książki: '<%= @book.title %>'!
+<%= link_to "Przejdź do książki", book_url(@book.id, host: 'localhost:3000') %>
