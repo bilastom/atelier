@@ -19,10 +19,15 @@ class BooksController < ApplicationController
   end
 
   def by_category
+    @adult = user_is_adult?
     @category = ::Category.find_by(name: params[:name])
   end
 
   private
+
+  def user_is_adult?
+    Time.now - 18.years > current_user.birthday
+  end
 
   def filter_params
     permitted_params

@@ -1,8 +1,8 @@
 <main class="main-content">
   <h2>Books in category <%= @category.name %></h2>
-  <%= render partial: 'books/elements/category', locals: { books: @category.books } %>
+  <%= render partial: 'books/elements/category', locals: { books: @category.books(@adult) } %>
   <h2>Similar books</h2>
-  <%= render partial: 'books/elements/category', locals: { books: @category.similar_books } %>
+  <%= render partial: 'books/elements/category', locals: { books: @category.similar_books(@adult) } %>
   <%= link_to new_book_path, class: 'btn' do %>
       <i class="fa fa-plus-circle"></i>
       add book
